@@ -1,0 +1,66 @@
+<div class="container is-max-desktop">
+  <div class="notification is-primary">
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name, class: "label" %><br />
+     <div class="control has-icons-left has-icons-right">
+    <%= f.text_field :name, class: "input is-success", type: "text", placeholder: "Nombre", autofocus: true, autocomplete: "name" %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastname, class: "label" %><br />
+    <div class="control has-icons-left has-icons-right">
+    <%= f.text_field :lastname, class: "input is-success", type: "text", placeholder: "Apellido", autofocus: true, autocomplete: "lastname" %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :username,  class: "label" %><br />
+    <div class="control has-icons-left has-icons-right">
+    <%= f.text_field :username, class: "input is-success", type: "text", placeholder: "Nombre de Usuario", autofocus: true, autocomplete: "username" %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, class: "label" %><br />
+    <div class="control has-icons-left has-icons-right">
+    <%= f.email_field :email, class: "input is-success", type: "text", placeholder: "Correo", autofocus: true, autocomplete: "email" %>
+  </div>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :password, class: "label" %><br />
+    <div class="control has-icons-left has-icons-right">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, class: "input is-success", type: "password", autocomplete: "new-password" %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: "label" %><br />
+    <div class="control has-icons-left has-icons-right">
+    <%= f.password_field :password_confirmation, class: "input is-success", type: "password", autocomplete: "new-password" %>
+  </div>
+  </div>
+
+<div class="actions">
+  <div class="control">
+    <div class="buttons has-addons is-centered">
+    <button class="button is-medium">Sign up</button>
+  </div>
+</div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+  </div>
+</div>

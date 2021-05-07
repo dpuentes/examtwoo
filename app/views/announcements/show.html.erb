@@ -1,0 +1,17 @@
+<div class="large-container center-block">
+<h1><%=@announcement.title%></h1>
+
+<div>
+	<p>El autor de este auncio es: <strong><%= @announcement.user.username %></strong>	</p>
+</div>
+<div>
+	<%= @announcement.content %>
+	<%= @announcement.created_at %>
+</div>
+
+<div>
+	<%= link_to "Eliminicar anuncio", @announcement, method: :delete %>
+	<%= link_to "Editar anuncio" %>
+</div>
+
+
