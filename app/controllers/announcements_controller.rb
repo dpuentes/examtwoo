@@ -26,6 +26,11 @@ class AnnouncementsController < ApplicationController
 	def create
 		@announcement = current_user.announcements.create(announcement_params)
 		redirect_to @announcement
+
+		if @announcement.save
+			return redirect_to @announcement
+		end
+
 	end
 
 	def destroy

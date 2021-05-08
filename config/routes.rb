@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "users/new", to: "users#new"
   post "users", to:"users#create"
 
+
+
   get "announcements", to:"announcements#index"
   get "announcements/new", to: "announcements#new"
   get "announcements/:id", to: "announcements#show"
