@@ -1,0 +1,2 @@
+module UsersAnnouncementsHelper
+end

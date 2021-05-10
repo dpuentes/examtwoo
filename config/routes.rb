@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'home/index'
   devise_for :users, :controllers => { registrations: 'registrations' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -19,4 +20,6 @@ Rails.application.routes.draw do
   patch "/announcements/:id", to: "announcements#update", as: :announcement
   post "announcements", to: "announcements#create"
   delete "announcements/:id", to: "announcements#destroy"
+
+  get "users_announcements", to:"users_announcements#index"
 end
