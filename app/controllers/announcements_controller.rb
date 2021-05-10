@@ -1,4 +1,4 @@
-class AnnouncementsController < ApplicationController
+ class AnnouncementsController < ApplicationController
 	before_action :find_announcement, except: [:new, :create, :index, :author]
 	before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
 	##tambien sirve excep: [:new,:create, :index]
@@ -17,6 +17,7 @@ class AnnouncementsController < ApplicationController
 	def update
 		@announcement.update(announcement_params)
 		redirect_to @announcement
+		flash[:notice] = "¡Anuncio actualizado con exito!"
 	end
 
 	def new
@@ -25,10 +26,15 @@ class AnnouncementsController < ApplicationController
 
 	def create
 		@announcement = current_user.announcements.create(announcement_params)
-		redirect_to @announcement
-
+		
+		
 		if @announcement.save
-			return redirect_to @announcement
+			redirect_to @announcement
+			flash[:notice] = "¡Anuncio creado con exito!"
+			
+		else
+			redirect_to announcements_new_path
+			flash[:alert] = "¡ups algo esta mal, tu anuncio no fue creado!"
 		end
 
 	end

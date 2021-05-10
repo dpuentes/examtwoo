@@ -12,17 +12,20 @@
   </head>
 
   <body>
-    <% if notice %>
-    <p class="alert alert-primary"><%= notice %></p>
-    <%end%>
+    <div class="container">
+      <% if notice %>
+        <p class="notification is-info"><%= notice %></p>
+      <%end%>
 
-    <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-    <%end%>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <%end%>
+    </div>
     
     <%= render "partials/nav" %>
     <div class="container is-max-desktop">
     <%= yield %>
   </div>
   </body>
+
 </html>
