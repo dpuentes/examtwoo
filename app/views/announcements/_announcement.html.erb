@@ -1,4 +1,20 @@
-		<%= announcement.id %>
-		<%= announcement.title %>
+
+<div class="box">
+<div class="column">
+ 
+<p class="title is-3 is-spaced">
+	ID: <%= announcement.id %> 
+	Titulo: <%= announcement.title %>
+</p>
+
+<p class="subtitle is-3">
+		<%= announcement.content %>
+</p>
+
+
 		<%= announcement.created_at %>
+		<%= announcement.user.username %>
 		<%= link_to "ver auncio", announcement %>
+
+</div>
+</div>
