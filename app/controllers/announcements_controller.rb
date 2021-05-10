@@ -34,7 +34,7 @@
 			
 		else
 			redirect_to announcements_new_path
-			flash[:alert] = "¡ups algo esta mal, tu anuncio no fue creado!"
+			flash[:alert] = "¡ups algo esta mal, tu anuncio no fue creado - El titulo debe tener minimo 4 caracteres, el titulo no puede ser repetido!"
 		end
 
 	end
