@@ -16,13 +16,13 @@
       <a class="navbar-item",  <%= link_to "Home", home_index_path, class:"nav-link" %>
       </a>
 
-      <a class="navbar-item", <%= link_to "Crear Anuncio", announcements_new_path, class:"nav-link" %>
+      <a class="navbar-item", <%= link_to "Crear Anuncio", new_announcement_path, class:"nav-link" %>
       </a>
 
       <a class="navbar-item", <%= link_to "Mis Anuncios", announcements_path, class:"nav-link" %>
       </a>
 
-      <a class="navbar-item", <%= link_to "Anuncios Publicados", users_announcements_path, class:"nav-link" %>
+      <a class="navbar-item", <%= link_to "Anuncios Publicados", public_announcement_index_path, class:"nav-link" %>
       </a>
 
     </div>

@@ -1,20 +1,18 @@
+<article class="message is-primary">
 
-<div class="box">
-<div class="column">
- 
-<p class="title is-3 is-spaced">
-	ID: <%= announcement.id %> 
-	Titulo: <%= announcement.title %>
-</p>
+  <div class="message-header">
+    <p>	ID: <%= announcement.id %> 
+	       Titulo: <%= announcement.title %></p>
+   </div>
 
-<p class="subtitle is-3">
-		<%= announcement.content %>
-</p>
-
-
-		<%= announcement.created_at %>
-		<%= announcement.user.username %>
-		<%= link_to "ver auncio", announcement %>
-
-</div>
-</div>
+  <div class="message-body">
+  <strong>
+    <p> <%= announcement.content %> </p>
+    <p> Autor: <%= current_user.username %> </p>
+    <p> <%= announcement.created_at.strftime("%d/%B/%Y %H:%M") %> </p>
+  </strong> 
+  </div>
+  	<button class="button is-primary is-rounded"><%= link_to "ver auncio", announcement %> </button>
+  	<button class="button is-primary is-rounded"><%= link_to "Eliminicar anuncio", @announcement, method: 																				:delete %></button>
+  	<button class="button is-primary is-rounded"><%= link_to "Editar anuncio", @announcement, method: :edit																					%></button>
+</article>

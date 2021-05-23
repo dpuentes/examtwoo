@@ -1,0 +1,11 @@
+
+<h1>PublicAnnouncement#show</h1>
+
+<%= @announcementpublic.title%>
+<%= @announcementpublic.user.username %>
+<%= @announcementpublic.content %>
+<%= @announcementpublic.created_at %>
+<p>Find me in app/views/public_announcement/show.html.erb</p>
+
+
+<%= link_to 'Visto', users_announcements_path(announcement_id: @announcementpublic.id), method: :post, class: "button" %>

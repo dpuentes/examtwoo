@@ -8,10 +8,10 @@
 	end
 	
 	def show
+		redirect_to  public_announcement_path(id:@announcement.id)
 	end
 
 	def edit
-		puts "\n\n\n #{@announcement.persisted?} \n\n\n"
 	end
 
 	def update

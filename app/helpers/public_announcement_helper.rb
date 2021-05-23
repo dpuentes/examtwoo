@@ -1,0 +1,2 @@
+module PublicAnnouncementHelper
+end

@@ -1,0 +1,17 @@
+<h1>Articles</h1>
+
+<ul>
+  <% @announcementpublics.each do |announcement| %>
+    <li>
+    	<a href=//localhost:3000/public_announcement/<%= announcement.id %>><%= announcement.title %> </a>
+      	<%= announcement.content %>
+      	<%= announcement.user.username %>
+
+
+      	<%= link_to "ver", announcement %>
+      
+    </li>
+  <% end %>
+</ul>
+
+form_with(model: @users_announcement, url: users_announcement_path)
