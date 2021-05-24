@@ -1,11 +1,26 @@
 
-<h1>PublicAnnouncement#show</h1>
+<h1>Anuncio ID:<%= @announcementpublic.id %> publicado</h1>
+<div class="card">
+  <header class="card-header">
+    <h2 class="card-header-title-is-centered">
+      <%= @announcementpublic.title%>
+    </h2>
+  </header>
 
-<%= @announcementpublic.title%>
-<%= @announcementpublic.user.username %>
-<%= @announcementpublic.content %>
-<%= @announcementpublic.created_at %>
-<p>Find me in app/views/public_announcement/show.html.erb</p>
+  <div class="card-content">
+    <div class="content">
+
+     	<h3> Creado por: <%= @announcementpublic.user.username %> </h3>
+		<h4> <%= @announcementpublic.content %> </h4>
+		<%= @announcementpublic.created_at.strftime("%d/%B/%Y %H:%M") %>
+
+    </div>
+  </div>
+ </div>
 
 
-<%= link_to 'Visto', users_announcements_path(announcement_id: @announcementpublic.id), method: :post, class: "button" %>
+<button class="button is-medium is-fullwidth"> <%= link_to 'Visto', users_announcements_path(announcement_id: @announcementpublic.id), method: :post %> </button>
+
+
+
+

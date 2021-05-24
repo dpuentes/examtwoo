@@ -1,10 +1,12 @@
  class AnnouncementsController < ApplicationController
 	before_action :find_announcement, except: [:new, :create, :index, :author]
 	before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
+	ANNOUNCEMENTS_PER_PAGE = 3
 	##tambien sirve excep: [:new,:create, :index]
 
 	def index
-		@announcements = Announcement.all
+		@page = params.fetch(:page, 0).to_i
+  		@announcements = Announcement.offset(@page * ANNOUNCEMENTS_PER_PAGE).limit(ANNOUNCEMENTS_PER_PAGE)
 	end
 	
 	def show
@@ -53,7 +55,8 @@
 	end
 
 	def announcement_params
-		params.require(:announcement).permit(:title,:content)
+		Announcement.find(params[:announcement_id])
+		params.require(:announcement).permit(:title,:content,:id)
 		
 	end
 

@@ -1,17 +1,35 @@
-<h1>Articles</h1>
-
-<ul>
-  <% @announcementpublics.each do |announcement| %>
-    <li>
-    	<a href=//localhost:3000/public_announcement/<%= announcement.id %>><%= announcement.title %> </a>
-      	<%= announcement.content %>
-      	<%= announcement.user.username %>
+<h1>Anuncios publicados </h1>
 
 
-      	<%= link_to "ver", announcement %>
-      
-    </li>
-  <% end %>
-</ul>
+<div class="container is-max-desktop">
+  <div class="notification is-primary">
+    <ul>
+      <% @announcementpublics.each do |announcement| %>
+        <li>
+            <div class="card">
+              <div class="card-content">
+                <div class="content">
+                  <div class="column is-half">
+                    <code><%= announcement.title %></code>
+                      <p>
+                        <%= announcement.content %>
+                        <%= announcement.user.username %>
+                      </p>
+                        <button class="button is-success is-light"><%= link_to "ver", announcement %></button>
+                  </div>    
+                </div>
+              </div>
+            </div>
+                
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-form_with(model: @users_announcement, url: users_announcement_path)
+<div>
+  <a class="pagination-previous" <%= link_to "Página anterior", public_announcement_index_path(page: @page - 1) %> </a>
+  <a class="pagination-next"  <%= link_to "Página Siguiente", public_announcement_index_path(page: @page + 1) %>
+</a>
+
+</div>
