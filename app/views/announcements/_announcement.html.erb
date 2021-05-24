@@ -1,3 +1,4 @@
+
 <article class="message is-primary">
 
   <div class="message-header">
@@ -15,11 +16,9 @@
   	<button class="button is-primary is-rounded"><%= link_to "ver auncio", announcement %> </button>
   	<button class="button is-primary is-rounded"><%= link_to "Eliminicar anuncio", @announcement, method: 																				:delete %></button>
   	<button class="button is-primary is-rounded"><%= link_to "Editar anuncio", @announcement, method: :edit																					%></button>
+
+
 </article>
 
-<div>
-  <a class="pagination-previous" <%= link_to "Página anterior", announcements_path(page: @page - 1) %> </a>
-  <a class="pagination-next"  <%= link_to "Página Siguiente", announcements_path(page: @page + 1) %>
-</a>
 
-</div>
+
