@@ -2,11 +2,12 @@
 	before_action :find_announcement, except: [:new, :create, :index, :author]
 	before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
 	ANNOUNCEMENTS_PER_PAGE = 3
+	#before_create :set_expiration_date
 	##tambien sirve excep: [:new,:create, :index]
 
-	def index
+	def index 
 		@page = params.fetch(:page, 0).to_i
-  		@announcements = Announcement.offset(@page * ANNOUNCEMENTS_PER_PAGE).limit(ANNOUNCEMENTS_PER_PAGE)
+  		@announcements = Announcement.where(user_id: current_user.id).offset(@page * ANNOUNCEMENTS_PER_PAGE).limit(ANNOUNCEMENTS_PER_PAGE)
 	end
 	
 	def show
@@ -35,11 +36,12 @@
 			flash[:notice] = "¡Anuncio creado con exito!"
 			
 		else
-			redirect_to announcements_new_path
+			redirect_to new_announcement_path
 			flash[:alert] = "¡ups algo esta mal, tu anuncio no fue creado - El titulo debe tener minimo 4 caracteres, el titulo no puede ser repetido!"
 		end
-
 	end
+
+
 
 	def destroy
 		@announcement.destroy
@@ -55,8 +57,8 @@
 	end
 
 	def announcement_params
-		Announcement.find(params[:announcement_id])
-		params.require(:announcement).permit(:title,:content,:id)
+		#Announcement.find(params[:announcement_id])
+		params.require(:announcement).permit(:title,:content,:id,:expiration_date)
 		
 	end
 

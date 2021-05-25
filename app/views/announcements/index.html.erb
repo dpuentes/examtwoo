@@ -4,8 +4,10 @@
 
 
 <div>
-  <a class="pagination-previous" <%= link_to "Página anterior", announcements_path(page: @page - 1) %> </a>
-  <a class="pagination-next"  <%= link_to "Página Siguiente", announcements_path(page: @page + 1) %>
+	<% if @page >= 1 %>
+  	<a class="pagination-previous" <%= link_to "Página anterior", announcements_path(page: @page - 1) %> </a>
+  	<% end %>
+  	<a class="pagination-next"  <%= link_to "Página Siguiente", announcements_path(page: @page + 1) %>
 </a>
 
 </div>
