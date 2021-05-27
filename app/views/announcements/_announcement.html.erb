@@ -10,7 +10,8 @@
   <strong>
     <p> <%= announcement.content %> </p>
     <p> Autor: <%= current_user.username %> </p>
-    <p> <%= announcement.created_at.strftime("%d/%B/%Y %H:%M") %> </p>
+    <p> Este anuncio se creo el: <%= announcement.created_at.strftime("%d/%B/%Y %H:%M") %> </p>
+    <p> Este anuncio expirará el: <%= announcement.expiration_date.strftime("%d/%B/%Y %H:%M") %> </p>
   </strong> 
   </div>
   	<button class="button is-primary is-rounded"><%= link_to "ver auncio", announcement %> </button>

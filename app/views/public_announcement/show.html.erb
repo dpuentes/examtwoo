@@ -12,7 +12,8 @@
 
      	<h3> Creado por: <%= @announcementpublic.user.username %> </h3>
 		<h4> <%= @announcementpublic.content %> </h4>
-		<%= @announcementpublic.created_at.strftime("%d/%B/%Y %H:%M") %>
+		<P> Este auncio se publico el: <%= @announcementpublic.created_at.strftime("%d/%B/%Y %H:%M") %> </P>
+    <p> Este anuncio expirará el: <%= @announcementpublic.expiration_date.strftime("%d/%B/%Y %H:%M") %> </p>
 
     </div>
   </div>
