@@ -87,3 +87,9 @@ production:
   database: examtwo_production
   username: examtwo
   password: <%= ENV['EXAMTWO_DATABASE_PASSWORD'] %>
+
+  #production:
+  #<<: *default
+  #database:   
+  #username: myapp
+  #password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
