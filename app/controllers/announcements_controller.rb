@@ -45,7 +45,7 @@
 
 	def destroy
 		@announcement.destroy
-		redirect_to announcements_new_path
+		redirect_to home_index_path
 	end
 
 	def author
