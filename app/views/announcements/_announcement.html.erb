@@ -14,9 +14,12 @@
     <p> Este anuncio expirará el: <%= announcement.expiration_date.strftime("%d/%B/%Y %H:%M") %> </p>
   </strong> 
   </div>
-  	<button class="button is-primary is-rounded"><%= link_to "ver auncio", announcement %> </button>
-  	<button class="button is-primary is-rounded"><%= link_to "Eliminicar anuncio", @announcement, method: 																				:delete %></button>
-  	<button class="button is-primary is-rounded"><%= link_to "Editar anuncio", @announcement, method: :edit																					%></button>
+
+
+  	<a class="button is-primary is-rounded" <%= link_to "ver auncio", announcement %> </a>
+  	<a class="button is-primary is-rounded" <%= link_to "Eliminicar anuncio", @announcement, method: 																				:delete %> </a>
+  	<a class="button is-primary is-rounded" <%= link_to "Editar anuncio", announcement, method: :edit																					%></a>
+
 
 
 </article>
