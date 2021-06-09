@@ -1,6 +1,6 @@
  class AnnouncementsController < ApplicationController
 	before_action :find_announcement, except: [:new, :create, :index, :author]
-	before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
+	before_action :authenticate_user!, only: [:new, :index,:create,:edit,:update,:destroy]
 	#before_create :set_expiration_date
 	##tambien sirve excep: [:new,:create, :index]
 
