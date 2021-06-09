@@ -10,8 +10,8 @@
 </div>
 
 <div>
-	<%=form.label :expiration_date %>
-	<%= form.date_field :expiration_date %>
+	<%= form.label :expiration_date %>
+	<%= form.date_field :expiration_date, min:Date.today %>
 
 </div>
 

@@ -1,13 +1,12 @@
  class AnnouncementsController < ApplicationController
 	before_action :find_announcement, except: [:new, :create, :index, :author]
 	before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
-	ANNOUNCEMENTS_PER_PAGE = 3
 	#before_create :set_expiration_date
 	##tambien sirve excep: [:new,:create, :index]
 
-	def index 
-		@page = params.fetch(:page, 0).to_i
-  		@announcements = Announcement.where(user_id: current_user.id).offset(@page * ANNOUNCEMENTS_PER_PAGE).limit(ANNOUNCEMENTS_PER_PAGE)
+	def index
+		@announcements = Announcement.paginate(page: params[:page], per_page: 3).order(id: :desc).where user_id: current_user.id
+
 	end
 	
 	def show
@@ -28,16 +27,23 @@
 	end
 
 	def create
-		@announcement = current_user.announcements.create(announcement_params)
+		@announcement = current_user.announcements.new(announcement_params)
+
+		if @announcement.expiration_date >= Date.today
 		
 		
-		if @announcement.save
-			redirect_to @announcement
-			flash[:notice] = "¡Anuncio creado con exito!"
-			
+			if @announcement.save
+				redirect_to @announcement
+				flash[:notice] = "¡Anuncio creado con exito!"
+				
+			else
+				redirect_to new_announcement_path
+				flash[:alert] = "¡ups algo esta mal, tu anuncio no fue creado - El titulo debe tener minimo 4 caracteres, el titulo no puede ser repetido!"
+			end
+
 		else
 			redirect_to new_announcement_path
-			flash[:alert] = "¡ups algo esta mal, tu anuncio no fue creado - El titulo debe tener minimo 4 caracteres, el titulo no puede ser repetido!"
+			flash[:alert] = "Error de fecha"
 		end
 	end
 

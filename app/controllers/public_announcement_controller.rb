@@ -1,8 +1,8 @@
 class PublicAnnouncementController < ApplicationController
-	ANNOUNCEMENTPUBLICS_PER_PAGE = 3
+	#ANNOUNCEMENTPUBLICS_PER_PAGE = 3
 	def index
-	@page = params.fetch(:page, 0).to_i
-  	@announcementpublics = Announcement.where("expiration_date >= ?",Time.now).offset(@page * ANNOUNCEMENTPUBLICS_PER_PAGE).limit(ANNOUNCEMENTPUBLICS_PER_PAGE)
+
+  	@announcementpublics = Announcement.paginate(page: params[:page], per_page: 3).order(id: :desc).where("expiration_date >= ?",Time.now)
 
 	end
 

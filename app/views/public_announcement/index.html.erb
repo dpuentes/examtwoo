@@ -25,13 +25,11 @@
       <% end %>
     </ul>
   </div>
-</div>
 
-<div>
-  <% if @page >= 1 %>
-  <a class="pagination-previous" <%= link_to "Página anterior", public_announcement_index_path(page: @page - 1) %> </a>
-  <% end %>
-  <a class="pagination-next"  <%= link_to "Página Siguiente", public_announcement_index_path(page: @page + 1) %>
-</a>
+  <div class="my_pagination"
+    <%= will_paginate @announcementpublics, :page_links => false %>
+  </div>
 
 </div>
+
+
